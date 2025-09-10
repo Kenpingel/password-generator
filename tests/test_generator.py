@@ -28,7 +28,6 @@ def test_length_parameter_is_respected():
         assert len(p) == length
         
 
-@pytest.mark.xfail(reason="Length validation not implemented yet")
 @pytest.mark.parametrize("invalid_length", [0, 1, 2, 3, -5])
 def test_length_less_than_4_raises(invalid_length):
     with pytest.raises(ValueError, match="length must be at least 4"):
