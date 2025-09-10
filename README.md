@@ -13,7 +13,7 @@ python main.py
 ```
 
 ## Features / Roadmap
-- [ ] basic password generation
+- [x] basic password generation
     - [ ] length parameter
     - [ ] option to include numbers
     - [ ] option to include symbols
@@ -22,3 +22,6 @@ python main.py
 - [ ] potentially make a web based version
 
 ## Lessons Learned
+When generating random things that require security such as passwords, using the secrets library is superior to using the random library.
+This is because secrets number generation is based on OS-provided sources of randomness such as hardware level noise or other unpredicable events.
+Whereas random uses a seed that could be replicated through brute force or other methods.
