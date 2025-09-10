@@ -9,7 +9,7 @@ no external dependencies currently
 
 ## How to Run
 ```bash
-python main.py
+python3 passwords.py
 ```
 
 ## Features / Roadmap
