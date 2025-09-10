@@ -3,8 +3,15 @@ import string
 
 
 def generate_passwords(length=12):
-    # default length is 12 for the password.
-
+    """
+    Generate a password that includes at least one lowercase, one uppercase, one digit, and one symbol.
+    """
+    # raising exeptions in case of length parameter issues.
+    if not isinstance(length, int):
+        raise TypeError("length must be an int")
+    if length < 4:
+        raise ValueError("length must be at least 4")
+    
     # choices is the string containing all characters that are acceptable for use in the password generation.
     choices = string.ascii_letters + string.digits + string.punctuation
 
