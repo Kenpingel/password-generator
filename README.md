@@ -17,6 +17,7 @@ python main.py
     - [ ] length parameter
     - [ ] option to include numbers
     - [ ] option to include symbols
+- [ ] option for password to be more memorable
 - [ ] option for saving to file
 - [ ] update to use Curses library to have a nicer format in the CLI
 - [ ] potentially make a web based version
