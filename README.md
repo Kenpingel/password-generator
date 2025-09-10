@@ -15,8 +15,8 @@ python3 passwords.py
 ## Features / Roadmap
 - [x] basic password generation
     - [ ] length parameter
-    - [ ] option to include numbers
-    - [ ] option to include symbols
+    - [ ] option to disclude numbers
+    - [ ] option to disclude symbols
 - [ ] option for password to be more memorable
 - [ ] option for saving to file
 - [ ] update to use Curses library to have a nicer format in the CLI
