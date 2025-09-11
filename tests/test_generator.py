@@ -34,15 +34,13 @@ def test_length_less_than_4_raises(invalid_length):
             generate_passwords(length=invalid_length)
 
 
-@pytest.mark.xfail(reason="Exclude digits option not implemented yet")
 def test_excluding_digits_produces_no_digits():
     # Future API idea: passwords(length=16, include_digits=False)
-    p = generate_passwords(length=16, include_digits=False)  # type: ignore[call-arg]
+    p = generate_passwords(length=16, exclude_digits=True)  # type: ignore[call-arg]
     assert not any(ch.isdigit() for ch in p)
 
 
-@pytest.mark.xfail(reason="Exclude symbols option not implemented yet")
 def test_excluding_symbols_produces_no_symbols():
     # Future API idea: passwords(length=16, include_symbols=False)
-    p = generate_passwords(length=16, include_symbols=False)  # type: ignore[call-arg]
+    p = generate_passwords(length=16, exclude_symbols=True)  # type: ignore[call-arg]
     assert not any(ch in string.punctuation for ch in p)
