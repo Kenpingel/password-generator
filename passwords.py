@@ -5,9 +5,10 @@ import argparse
 
 def main():
     args = cli_input()
-    return generate_passwords(args.length)
+    print(string.punctuation)
+    return generate_passwords(args.length, True, True)
 
-def generate_passwords(length=12):
+def generate_passwords(length=12, exclude_digits=False, exclude_symbols=False): 
     """
     Generate a password that includes at least one lowercase, one uppercase, one digit, and one symbol.
     """
@@ -18,12 +19,27 @@ def generate_passwords(length=12):
         raise ValueError("length must be at least 4")
     
     # choices is the string containing all characters that are acceptable for use in the password generation.
-    choices = string.ascii_letters + string.digits + string.punctuation
+    if exclude_digits and exclude_symbols:
+        choices = string.ascii_letters
+    elif exclude_digits:
+        choices = string.ascii_letters + string.punctuation
+    elif exclude_symbols:
+        choices = string.ascii_letters + string.digits
+    else:
+        choices = string.ascii_letters + string.digits + string.punctuation
 
     # returns a string of characters at random from the string of possible characters with a default amount of one lowercase letter, one uppercase letter, one number, at at least one symbol.
     while True: 
         password = "".join(secrets.choice(choices) for i in range(length))
-        if (any(ch.islower() for ch in password) and any(ch.isupper() for ch in password) and any(ch.isdigit() for ch in password) and any(ch in string.punctuation for ch in password)):
+        if exclude_digits and exclude_symbols:
+            test = any(ch.islower() for ch in password) and any(ch.isupper() for ch in password)
+        elif exclude_digits:
+            test = any(ch.islower() for ch in password) and any(ch.isupper() for ch in password) and any(ch in string.punctuation for ch in password)
+        elif exclude_symbols:
+            test = any(ch.islower() for ch in password) and any(ch.isupper() for ch in password) and any(ch.isdigit() for ch in password)
+        else:
+            test = any(ch.islower() for ch in password) and any(ch.isupper() for ch in password) and any(ch.isdigit() for ch in password) and any(ch in string.punctuation for ch in password)
+        if (test):
             break
     return password
 
