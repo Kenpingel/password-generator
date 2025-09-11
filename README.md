@@ -14,7 +14,7 @@ python3 passwords.py
 
 ## Features / Roadmap
 - [x] basic password generation
-    - [ ] length parameter
+    - [x] length parameter
     - [ ] option to exclude numbers
     - [ ] option to exclude symbols
 - [ ] option for password to be more memorable
@@ -26,3 +26,5 @@ python3 passwords.py
 When generating random things that require security such as passwords, using the secrets library is superior to using the random library.
 This is because secrets number generation is based on OS-provided sources of randomness such as hardware level noise or other unpredicable events.
 Whereas random uses a seed that could be replicated through brute force or other methods.
+
+Learned how the argparse library takes command line arguments and how I can use them in my program.
