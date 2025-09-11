@@ -4,12 +4,16 @@ import argparse
 
 
 def main():
+    """
+    Takes command line arguments and inputs them to the generation function and returns the string password
+    """
     args = cli_input()
     return generate_passwords(length=args.length, exclude_digits=args.digits, exclude_symbols=args.symbols)
 
 def generate_passwords(length=12, exclude_digits=False, exclude_symbols=False): 
     """
     Generate a password that includes at least one lowercase, one uppercase, one digit, and one symbol.
+    digits and symbols can be excluded based on user preference using parameters exclude_digits and exclude_symbols
     """
     # raising exeptions in case of length parameter issues.
     if not isinstance(length, int):
@@ -43,6 +47,9 @@ def generate_passwords(length=12, exclude_digits=False, exclude_symbols=False):
     return password
 
 def cli_input():
+    """
+    Pulls command line arguments and passes them up in a parser object
+    """
     parser = argparse.ArgumentParser(
         prog="passwordgen",
         description="Generate secure passwords"
