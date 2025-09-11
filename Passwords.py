@@ -1,6 +1,11 @@
 import secrets
 import string
+import argparse
 
+
+def main():
+    
+    return generate_passwords(cli_input())
 
 def generate_passwords(length=12):
     """
@@ -22,6 +27,15 @@ def generate_passwords(length=12):
             break
     return password
 
+def cli_input():
+    parser = argparse.ArgumentParser(
+        prog="passwordgen",
+        description="Generate secure passwords"
+    )
+    parser.add_argument("-l", "--length", type=int, default=12, help="Length of password")
+    args = parser.parse_args()
+    return args.length
+
 
 if __name__ == "__main__":
-    print(generate_passwords())
+    print(main())
