@@ -4,8 +4,8 @@ import argparse
 
 
 def main():
-    
-    return generate_passwords(cli_input())
+    args = cli_input()
+    return generate_passwords(args.length)
 
 def generate_passwords(length=12):
     """
@@ -33,8 +33,7 @@ def cli_input():
         description="Generate secure passwords"
     )
     parser.add_argument("-l", "--length", type=int, default=12, help="Length of password")
-    args = parser.parse_args()
-    return args.length
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
