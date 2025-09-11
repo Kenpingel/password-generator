@@ -5,8 +5,7 @@ import argparse
 
 def main():
     args = cli_input()
-    print(string.punctuation)
-    return generate_passwords(args.length, True, True)
+    return generate_passwords(length=args.length, exclude_digits=args.digits, exclude_symbols=args.symbols)
 
 def generate_passwords(length=12, exclude_digits=False, exclude_symbols=False): 
     """
@@ -49,6 +48,8 @@ def cli_input():
         description="Generate secure passwords"
     )
     parser.add_argument("-l", "--length", type=int, default=12, help="Length of password")
+    parser.add_argument("-d", "--digits", action="store_true", help="Exclude digits in the password")
+    parser.add_argument("-s", "--symbols", action="store_true", help="Exclude symbols in the password")
     return parser.parse_args()
 
 
